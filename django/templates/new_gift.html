@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Список ваших подарков{% endblock %}
+
+{% block content %}
+<h1>Хотите сами сделать подарок? Это очень просто!</h1>
+Для начала придумайте название своему подарку и сделайте короткое описание.
+{% if form.errors %}
+    {{ form.errors }}
+{% endif %}
+
+<form action="" method="post">#{% csrf_token %}
+<table>
+{{ form.as_table }}
+</table>
+<input type="submit" vа1ue="Сделать подарок">
+</form>
+{% endblock %}
