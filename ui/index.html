@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Welcome to h3art.org</title>
+
+    <link type="text/css" href="css/redmond/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+	$("#tabs").tabs({event: "click"});
+	$(".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+	    .removeClass( "ui-corner-all ui-corner-top" )
+	    .addClass( "ui-corner-bottom" );
+	$("#dialog:ui-dialog" ).dialog("destroy");
+	$("#login-form").dialog
+         ({
+	   height: 300, width: 300, modal: true, autoOpen: false, resizable: false,
+	   buttons:{
+		    "Log in": function(){return false},
+		    "Cancel": function(){$(this).dialog("close")}
+	   	   }
+	  });
+	$("#registration-form").dialog
+	 ({
+	   height: 600, width: 400, modal: true, autoOpen: false, resizable: false,
+	   buttons:{
+		   "Register": function(){return false},
+		   "Cancel": function(){$(this).dialog("close")}
+		  }
+	 });
+	$("#join-us")
+		.button()
+		.click(function(){$("#registration-form").dialog("open");});
+	$("#login")
+		.button()
+		.click(function(){$("#login-form").dialog("open");});
+       });
+    </script>
+
+    <style type="text/css">
+      * { padding: 0; margin: 0;} 
+
+      body { font: 75%, sans-serif; font-family: Helvetica, sans-serif; margin: 10px; font-size: 14px; line-height: 16px; color: #333333; }
+
+      label, input {margin: 5px; display:block; }
+      input.text { margin-bottom:12px; width:95%; padding: .4em; }
+      fieldset { padding:0; border:0; margin-top:25px; }
+
+      a { color: #57626a; text-decoration: none; }
+      a:hover { text-decoration: underline; color : #000; }
+
+      #wrap { margin: 0 auto; width: 800px; height: 600px; }
+      #header { width: 800px; height: 30px; margin: 10px;}
+      #menu { width: 1000px; height: 40px; line-height: 16px; margin-bottom: 5px; background: #ffffff;}
+      #main { margin: 0 auto; width: 800px; height: 585px}
+      #footer { width: 800px; height: 10px; text-align: center; border-top: 1px solid #57626a; margin: 5px; padding: 5px;}
+
+      #tabs {height: 500px; width: 600px; margin: 10px; margin-bottom: 5px; padding: 0px 0px 0px 0px;}
+      .tabs-bottom { position: relative; } 
+      .tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
+      .tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
+      .tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px; }
+      .ui-tabs-selected { margin-top: -3px !important; }
+    </style>	
+
+  </head>
+  <body>
+
+    <div id="login-form" title="Log in">
+      <form method="POST">
+	<fieldset>
+	  <label for="username">Username</label>
+	  <input type="text" name="username" id="username" class="text ui-widget-content ui-corner-all" />
+  	  <label for="password">Password</label>
+	  <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
+	  <!-- <noscript><input type="submit" action="" value="login" /></noscript> -->
+	</fieldset>
+      </form>
+    </div>
+
+    <div id="registration-form" title="Registration">
+     <form method="POST">
+	<p> </p>
+	<fieldset>
+	  <label for="new-username">User name</label>
+	  <input type="type" name="new-username" id="new-username" value="" class="text ui-widget-content ui-corner-all">
+	  <label for="e-mail">e-Mail address</label>
+	  <input type="text" name="e-mail" id="e-mail" class="text ui-widget-content ui-corner-all">
+	  <label for="usr-pswd">Password (minimum 6 characters)</label>
+	  <input type="password" name="usr-pswd" id="usr-pswd" value="" class="text ui-widget-content ui-corner-all" />
+	  <label for="usr-pswd-conf">Confirm your password</label>
+	  <input type="password" name="usr-pswd-conf id="usr-pswd" value="" class="text ui-widget-content ui-content-all"/>
+	</fieldset>
+     </form>
+    </div>
+
+    <div id="wrap">
+
+	<div id="header">
+	  <h1><a href="h3art.org">h3art.org</a></h1>
+	</div>   <!-- end #header -->
+
+	<div id="menu">
+	  <button id="login" class="ui-widget">Login</button>
+	</div>	<!-- end #menu -->
+
+	<div id="main">
+
+	  <div id="tabs" class="tabs-bottom">
+	   <ul>
+	     <li><a href="#tabs-1">About the project</a></li>
+	     <li><a href="#tabs-2">Learn more...</a></li>
+	   </ul>
+	   <div id="tabs-1">
+	     <a href="h3art.org">h3art.org</a> is a next-generation social network...
+	   </div>
+	   <div id="tabs-2">
+	     <button id="join-us" class="ui-widget">Join us!</button>
+	   </div>
+	  </div>   <!-- end #tabs -->
+
+        </div>   <!-- end #main -->
+
+      <div id="footer">
+	<a href="about.html">About us</a> | <a href="contacts.html">Contacts</a>
+      </div>  <!-- end #footer -->
+
+    </div>    <!--end #wrap -->
+  </body>
+</html>
