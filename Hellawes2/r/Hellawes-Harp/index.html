@@ -19,30 +19,28 @@
     <link href='http://fonts.googleapis.com/css?family=Marck+Script&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,400italic&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
-    <link type="text/css" href="../../css/style.css" rel="stylesheet" />
-    <link type="text/css" href="../../css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="../../res/css/style.css" rel="stylesheet" />
+    <link type="text/css" href="../../res/css/bootstrap.min.css" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="../../res/js/jquery-1.7.1.min.js"></script>
+     <script type="text/javascript" src="../../res/js/bootstrap.min.js"></script> -->
 
-    <script type="text/javascript">
-      $(function(){
-	$('#photos-slideshow').carousel();
-       });
-    </script>
+<!-- <script type="text/javascript">
+     </script> -->
 
     <style type="text/css">
-     .gift {position: relative; width: 50%; min-height: 98%; float: left; background: #ffffff; margin-left: auto; margin-right: auto; margin-top:0.5%; margin-bottom: 30px; background: transparent;}
+     #gift-block {position: relative; width: 50%; min-height: 550px; float: left; background: #ffffff; margin-left: auto; margin-right: auto; padding-top:0.5%; padding-bottom:0px; background: #dadeff; border-radius:10px;}
 
-     #g-slides {overflow:hidden; position: relative; width: 96%; min-height: 60%; margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;}
-     #g-slides span{font-family:'Ubuntu'; font-size:100%; letter-spacing:1px; line-height:110%;}
+     #gift-info {overflow:hidden; position: relative; width: 96%; min-height: 60%; margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;}
+     #gift-info span{font-family:'Ubuntu'; font-size:100%; letter-spacing:1px; line-height:110%;}
 
-     .g-slide {overflow:hidden; width:100%; margin-top: 0px; margin-bottom: auto; margin-left: auto; margin-right:auto;}
-
-     #message {position:relative; width:45%; min-height:98%; float:left; background: #fff; margin-left:1%; margin-right:0px; margin-top:0.5%; margin-bottom:50px;}
-     #message p{font-family:'Ubuntu'; font-size:130%; color:#2D2D2F; line-height:150%; letter-spacing:1.5px; text-align:justify;}
+     .gift-photo {overflow:hidden; width:100%; margin-top: 0px; margin-bottom: 0px; margin-left: auto; margin-right:auto; padding-top:10px; padding-bottom:10px;}
 
      #prophecy p{font-family:'Ubuntu'; color:#403F45; font-size:125%; letter-spacing:1px; line-height:120%; text-align:justify;}
+
+     #message {position:relative; width:45%; min-height:98%; float:left; background: #fff; margin-left:1%; margin-right:0px; margin-top:0.5%; margin-bottom:0px;}
+     #message p{font-family:'Ubuntu'; font-size:130%; color:#2D2D2F; line-height:150%; letter-spacing:1.5px; text-align:justify; text-indent:10pt;}
+
     </style>	
 
  </head>
@@ -50,31 +48,26 @@
  <body>
 
   <div class="wrap">
-    <div class="wrap2">
 
       <div class="header">
-
         <div class="h3-art-logo">
 	  <h1 style=" font-size:30pt; font-family:'Marck Script';"><a style="color:#1529DC; text-decoration:none;" href="http://h3-art.org/">h<sup>3</sup>-art.org</a></h1>
 	</div>
 
 	<div class="mmenu">
 	  <ul class="nav nav-pills">
-	    <li class="mmenu-item"><a href="../../index.html">Главная</a></li>
-	    <li class="mmenu-item active"><a href="#">Артефакты</a></li>
-	    <li class="mmenu-item"><a href="../../about.html">О нас</a></li>
-	  </ul>
-	</div>
+	<!--    <li class="mmenu-item"><a href="index.html">Главная</a></li>
+	    <li class="mmenu-item"><a href="#">Артефакты</a></li>
+	    <li class="mmenu-item"><a href="about.html">О нас</a></li> -->
+	  </ul> 
+	</div> 
+      </div> <!-- end #header -->
 
-      </div> <!-- end .header -->
+	  <div id="gift-block">
 
-      <div class="content">
-
-	  <div class="gift">
-
-	    <div id="g-slides">
-   	      <img class="g-slide" src="../../imgs/img_01.jpg" alt="">
-	      <h3><a href="gifts.html">Арфа Хелависы</a></h3>
+	    <div id="gift-info">
+   	      <img class="gift-photo" src="../../res/imgs/img_01.jpg" alt="">
+	      <h3><a href="#">Арфа Хелависы</a></h3>
 	      <span>Персонажу с именем <b>Хелависа</b> дает <b>+100</b> к обаянию, <b>+100</b> к очарованию голосом.</span><br/><br/>
  	      <span>
 		<b>Творцы артефакта: </b><a href="mailto:dunets.devel@gmail.com?subject=Feedback%20from%20h3-art.org">Сергей Дунец</a>, <a href="mailto:matsevich.devel@gmail.com?subject=Feedback%20from%20h3-art.org">Станислав Мацевич</a>
@@ -83,27 +76,26 @@
 
 	    <div id="g-prophecy" style="position:relative; width:96%; height:50%; margin-left:auto; margin-right:auto; margin-top:15px; margin-bottom:1%;">
 	      <div id="prophecy">
-                <p>Древние свитки гласят, что арфа обретет свою хозяйку в стольном граде Киеве в двадцать первый день четвертого месяца двенадцатого года третьего тысячелетия от Рождества Христова. </p><br/><br/>
+                <p>Древние свитки гласят, что арфа обретет свою хозяйку в стольном граде Киеве, стоящем на брегах Днепра, в двадцать первый день, четвертого месяца, двенадцатого года третьего тысячелетия от Рождества Христова. </p><br/><br/>
 	      </div>
 	    </div>
 	  </div>
 
 	  <div id="message">
-	    <p>Приветствуем тебя, Повелительница кельтских струн! <br/>
-	    Ты нарушила запрет, сорвав печать до назначенного срока и прочитав тайные руны. Что ж, будь по-твоему. </p>
+	    <h3 style="text-align:center;">Приветствуем тебя, Повелительница кельтских струн! </h3><br/>
+	    <p>Ты нарушила запрет, сорвав печать до назначенного срока и прочитав тайные руны. Что ж, будь по-твоему. </p>
 	    <p> Однажды из далёких земель принёс ветер твой чарующий голос... Голос зародил в нас желание сделать мир лучше. По воле богов и людей мы вытесали из чудесного минерала арфу как знак безграничной благодарности за твою музыку. <br/>
             Мудрость скал и стремительность ветров слились воедино, чтобы образовать этот артефакт. Особый знак указывает на огромную силу, заключенную в красивую оболочку, силу, что пробуждает в людях доброту и смелость, чтобы снова и снова дарить себя другим. <br/>
 	    Ты - первая из тех, кому достался артефакт. Он будет служить тебе, пока не отдашь его другому достойному человеку. <br/>
 	    Спасибо, Хелависа! </p> <br/><br/>
 	    <i style="font-size:12pt;">Разработчики свободного проекта дарения <a style="font-weight:bold" href="http://h3-art.org/">h3-art.org</a></i>
 	  </div>
-      </div>
-    </div> <!-- end .wrap2 -->
+      <div class="push"></div>
+   </div>  <!-- end #wrap -->
 
-     <div class="footer">
-       <a href="about.html">О нас</a><span> | </span><a href="contacts.html">Контакты</a>  | <a href="http://www.eomy.net/"><img src="http://www.eomy.net/eomy.net.laex.png" border="0" alt="EOMY.NET: бесплатный хостинг"/></a>
-     </div>
+   <div class="footer">
+     <a href="#">О нас</a><span> | </span><a href="#">Контакты</a>  | <a href="http://www.eomy.net/"><img src="http://www.eomy.net/eomy.net.laex.png" border="0" alt="EOMY.NET: бесплатный хостинг"/></a>
+   </div>
 
-  </div>  <!-- end .wrap -->
  </body>
 </html>

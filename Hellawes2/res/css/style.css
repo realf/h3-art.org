@@ -1,0 +1,24 @@
+* { padding: 0; margin: 0;} 
+
+html,body {height: 100%;}
+
+a{text-decoration:none; font-weight:bold; color:#4F5BC8;}
+
+.wrap {position: relative; width: 90%; min-width: 900px; min-height:95%; height: auto !important; height:100%; margin:0 auto -15px; padding-bottom:20px; background: transparent;}
+
+.header {position: relative; overflow: hidden; width: 100%; height: 49px; background: transparent; margin-top: 0px; margin-bottom:5px; margin-left:auto; margin-right:auto;}
+
+.h3-art-logo {position: relative; width: 30%; height: 99%; float: left; background: transparent; margin:0; padding-left: 15px; padding-top: 5px; padding-bottom: 0px;}
+
+.mmenu {position: relative; float: right; width: 60%; height: 100%; padding-top:10px; padding-left:auto; padding-right:auto; padding-bottom:10px;}
+
+.mmenu-item {position: relative; float: right; margin-left: 10%; margin-right: 0px;}
+
+.mmenu-item a {text-decoration: none; color: #4F56DC; font-family:'Ubuntu'; font-size: 125%; font-weight: bold; letter-spacing: 0.75px;}
+
+.mmenu-item a:hover {text-decoration: none; color: #0000aa;}
+
+.content {position: relative; width: 100%; height:auto !important; min-height:100%; margin-left:auto; margin-right:auto; background: transparent; border:1px solid;}
+
+.footer, .push {clear:both; position:relative; bottom: 0; margin-left:auto; margin-right:auto; width: 100%; height: 18px; background: transparent; font-family:'Ubuntu'; font-size: 90%; text-align: center;}
+.footer{border-top:1px solid #dadeff;}
