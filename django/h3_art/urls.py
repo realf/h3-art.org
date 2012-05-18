@@ -1,4 +1,5 @@
 from h3_art import settings
+from django.contrib.auth.views import login, logout
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -22,6 +23,9 @@ urlpatterns = patterns('',
     url(r'^$', gifts_views.main),
     url(r'^gifts/new/([A-Za-z]*)$', gifts_views.new_gift),
     url(r'^gifts/$', gifts_views.user_gifts),
+    url(r'^accounts/login/$', login, {'template_name':'login.html'}),
+    url(r'^accounts/logout/$', logout, {'template_name':'logout.html'}),
+    url(r'^accounts/profile/$', gifts_views.user_profile),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
