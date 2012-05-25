@@ -85,10 +85,13 @@ function redirect(s)
 	  <div id="about">
 <script type="text/javascript">
 <!-- //
+// Current date
 var today = new Date();  
+// Planned beta-release date. Month number counts from 0 (January) to 11 (December)
 var deadlineDate = new Date(2012, 8, 3);  
 
 var dateDiff = Math.floor((deadlineDate - today)/86400000);
+// Show this message only before release date
 if (dateDiff > 0) document.write("<p style='text-align:right;'>До запуска осталось <b>" + dateDiff + "</b> дней.</p>");
 // -->  
 </script>
