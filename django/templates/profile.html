@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block content %}
+Профиль пользователя {{user.username}}<br/>
+Имя пользователя {{user.get_full_name}}<br/>
+<br/>
+<a href="/accounts/logout">Выйти</a>
+{% endblock %}

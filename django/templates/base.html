@@ -1,10 +1,63 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title>{% block title %}Welcome to h3-art.org{% endblock %}</title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}Welcome to h3-art.org{% endblock %}</title>
+    <link type="text/css" href="{{ STATIC_URL }}css/redmond/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
+
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-1.8.18.custom.min.js"></script>
+
+    <style type="text/css">
+      * { padding: 0; margin: 0;} 
+
+      body { font: 75%, sans-serif; font-family: Helvetica, sans-serif; margin: 10px; font-size: 14px; line-height: 16px; color: #333333; }
+
+      label, input {margin: 5px; display:block; }
+      input.text { margin-bottom:12px; width:95%; padding: .4em; }
+      fieldset { padding:0; border:0; margin-top:25px; }
+
+      a { color: #57626a; text-decoration: none; }
+      a:hover { text-decoration: underline; color : #000; }
+
+      #wrap { margin: 0 auto; width: 800px; height: 600px; }
+      #header { width: 800px; height: 30px; margin: 10px;}
+      #menu { width: 1000px; height: 40px; line-height: 16px; margin-bottom: 5px; background: #ffffff;}
+      #main { margin: 0 auto; width: 800px; height: 585px}
+      #footer { width: 800px; height: 10px; text-align: center; border-top: 1px solid #57626a; margin: 5px; padding: 5px;}
+
+      #tabs {height: 500px; width: 600px; margin: 10px; margin-bottom: 5px; padding: 0px 0px 0px 0px;}
+      .tabs-bottom { position: relative; } 
+      .tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
+      .tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
+      .tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px; }
+      .ui-tabs-selected { margin-top: -3px !important; }
+    </style>
+
 </head>
 <body>
-{% block content %}
+    <div id="wrap">
 
-{% endblock %}
-</body>
+	<div id="header">
+	  <h1><a href="h3art.org">h3art.org</a></h1>
+	</div>   <!-- end #header -->
+	<div id="menu">
+        ---
+        {% if user.is_authenticated %}
+            Привет, <b>{{user.username}}</b>.  
+            <a href="/accounts/logout">Выйти</a>
+        {% else %}
+            <a href="/accounts/login">Войти</a>
+        {% endif %}
+        ---	  
+	</div>   <!-- end #menu -->
+        {% block content %}
+
+        {% endblock %}
+      <div id="footer">
+	  <a href="about.html">About us</a> | <a href="contacts.html">Contacts</a>
+      </div>  <!-- end #footer -->
+
+    </div>    <!--end #wrap -->
+  </body>
 </html>
