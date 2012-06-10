@@ -25,8 +25,10 @@ urlpatterns = patterns('',
     url(r'^gifts/$', gifts_views.user_gifts),
     url(r'^accounts/login/$', login, {'template_name':'login.html'}),
     url(r'^accounts/logout/$', logout, {'template_name':'logout.html'}),
-    url(r'^accounts/profile/$', gifts_views.user_profile),
-    url(r'^r/$', users_views.register),
+    # User Profile
+    url(r'^accounts/profile/$', users_views.user_profile),
+    # User Registration
+    url(r'^r/$', users_views.register), 
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
