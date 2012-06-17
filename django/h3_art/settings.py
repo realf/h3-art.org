@@ -1,7 +1,5 @@
 # Django settings for h3_art project.
-import os.path
-
-_PATH = os.path.join(os.path.dirname(__file__), "..")
+import h3_art.custom_settings
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,16 +10,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'sqlite.db',                      # Or path to database file if using sqlite3.
-        'USER': 'h3art_admin',                      # Not used with sqlite3.
-        'PASSWORD': 'pa$$w0rd',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+DATABASES = h3_art.custom_settings.DATABASES
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -51,30 +41,25 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(_PATH, 'files', 'media').replace('\\', '/')
+MEDIA_ROOT = h3_art.custom_settings.MEDIA_ROOT
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/media/'
+MEDIA_URL = h3_art.custom_settings.MEDIA_URL
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(_PATH, 'files', 'static').replace('\\', '/')
+STATIC_ROOT = h3_art.custom_settings.STATIC_ROOT
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = h3_art.custom_settings.STATIC_URL
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(_PATH, '..', 'ui').replace('\\', '/'),
-)
+STATICFILES_DIRS = h3_art.custom_settings.STATICFILES_DIRS
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -85,7 +70,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'f&amp;&amp;xtl%(@!d7^b%r=tgfktnrl_!ete@t4e-eu6mlrv_4wjr8z^'
+SECRET_KEY = h3_art.custom_settings.SECRET_KEY
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -109,12 +94,7 @@ ROOT_URLCONF = 'h3_art.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'h3_art.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(_PATH, 'templates').replace('\\', '/'),
-)
+TEMPLATE_DIRS = h3_art.custom_settings.TEMPLATE_DIRS
 
 INSTALLED_APPS = (
     'django.contrib.auth',
