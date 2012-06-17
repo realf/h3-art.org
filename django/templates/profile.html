@@ -3,8 +3,14 @@
 {% block title %}Профиль{% endblock %}
 
 {% block content %}
-Профиль пользователя {{user.username}}<br/>
-Имя пользователя {{user.get_full_name}}<br/>
+Профиль пользователя {{user_profile.username}}<br/>
 <br/>
-<a href="/accounts/logout">Выйти</a>
+Пользователь создал следующие подарки:<br/>
+<table align="center" border="1" cellspacing="1">
+<tr>
+{% for g in mastered_gifts %}
+    <td width = "100">{{g.name}}</td>
+{% endfor %}
+</tr>
+</table>
 {% endblock %}

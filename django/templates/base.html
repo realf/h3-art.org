@@ -1,63 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:og="http://ogp.me/ns#">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{% block title %}Welcome to h3-art.org{% endblock %}</title>
-    <link type="text/css" href="{{ STATIC_URL }}css/redmond/jquery-ui-1.8.18.custom.css" rel="stylesheet" />	
 
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-1.8.18.custom.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="h3-art.org is a social network">
+    <meta property="og:title" content="h3-art">
+    <meta property="og:site-name" content="h3-art">
+    <meta property="og:url" content="http://h3-art.org/">
+    <meta property="og:description" content="h3-art.org is a social network">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="ua_UA">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>{% block title %}h3-art.org | Добро пожаловать!{% endblock %}</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Marck+Script&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,400italic&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+    <link type="text/css" href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
+    <link type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" />
+    
+    <script type="text/javascript" src="{{ STATIC_URL }}js/md5.js"></script>
+
+<!-- <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
+     <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script> -->
+
 
     <style type="text/css">
-      * { padding: 0; margin: 0;} 
 
-      body { font: 75%, sans-serif; font-family: Helvetica, sans-serif; margin: 10px; font-size: 14px; line-height: 16px; color: #333333; }
+     #gift-block {font-family:'Ubuntu'; font-size:130%; color:#2D2D2F; line-height:150%; letter-spacing:1.5px; text-align:justify; text-indent:10pt; position: relative; width: 40%; min-height: 530px; height:auto !important; float: left; background: #ffffff; margin-left: auto; margin-right: auto; padding-top:0.5%; padding-bottom:0px; background: #dadeff; border-radius:10px;}
 
-      label, input {margin: 5px; display:block; }
-      input.text { margin-bottom:12px; width:95%; padding: .4em; }
-      fieldset { padding:0; border:0; margin-top:25px; }
+     #about {position:relative; width:55%; min-height:98%; float:left; background: #fff; margin-left:1%; margin-right:0px; margin-top:0.5%; margin-bottom:0px;}
+     #about p{font-family:'Ubuntu'; font-size:130%; color:#2D2D2F; line-height:150%; letter-spacing:1.5px; text-align:justify; text-indent:10pt;}
 
-      a { color: #57626a; text-decoration: none; }
-      a:hover { text-decoration: underline; color : #000; }
+    </style>	
 
-      #wrap { margin: 0 auto; width: 800px; height: 600px; }
-      #header { width: 800px; height: 30px; margin: 10px;}
-      #menu { width: 1000px; height: 40px; line-height: 16px; margin-bottom: 5px; background: #ffffff;}
-      #main { margin: 0 auto; width: 800px; height: 585px}
-      #footer { width: 800px; height: 10px; text-align: center; border-top: 1px solid #57626a; margin: 5px; padding: 5px;}
+ </head>
 
-      #tabs {height: 500px; width: 600px; margin: 10px; margin-bottom: 5px; padding: 0px 0px 0px 0px;}
-      .tabs-bottom { position: relative; } 
-      .tabs-bottom .ui-tabs-panel { height: 140px; overflow: auto; } 
-      .tabs-bottom .ui-tabs-nav { position: absolute !important; left: 0; bottom: 0; right:0; padding: 0 0.2em 0.2em 0; } 
-      .tabs-bottom .ui-tabs-nav li { margin-top: -2px !important; margin-bottom: 1px !important; border-top: none; border-bottom-width: 1px; }
-      .ui-tabs-selected { margin-top: -3px !important; }
-    </style>
+ <body>
 
-</head>
-<body>
-    <div id="wrap">
+ <div class="wrap">
 
-	<div id="header">
-	  <h1><a href="http://h3-art.org">h3-art.org</a></h1>
-	</div>   <!-- end #header -->
-	<div id="menu">
-        ---
-        {% if user.is_authenticated %}
-            Привет, <b>{{user.username}}</b>.  
-            <a href="/accounts/logout">Выйти</a>
-        {% else %}
-            <a href="/accounts/login">Войти</a>
-        {% endif %}
-        ---	  
-	</div>   <!-- end #menu -->
-        {% block content %}
+    <div class="header">
+        <div class="h3-art-logo">
+            <h1 style=" font-size:30pt; font-family:'Marck Script';"><a style="color:#1529DC; text-decoration:none;" href="http://h3-art.org/">h<sup>3</sup>-art.org</a></h1>
+        </div>
+    
+        <div class="mmenu">
+            <ul class="nav nav-pills">
+                <!-- <li class="mmenu-item"><a href="index.html">Главная</a></li>
+                <li class="mmenu-item"><a href="#">Артефакты</a></li>
+                <li class="mmenu-item"><a href="about.html">О нас</a></li> -->
+                {% if user.is_authenticated %}
+                    Привет, <b>{{user.username}}</b>.  <a href={% url django.contrib.auth.views.logout %}>Выйти</a>
+                {% else %}
+                    <a href={% url django.contrib.auth.views.login %}>Войти</a>
+                {% endif %} 	 
+            </ul> 
+        </div> 
+    </div> <!-- end #header -->
+    
+    {% block content %}
 
-        {% endblock %}
-      <div id="footer">
-	  <a href="about.html">About us</a> | <a href="contacts.html">Contacts</a>
-      </div>  <!-- end #footer -->
+    {% endblock %}    
 
-    </div>    <!--end #wrap -->
-  </body>
+
+</div>  <!-- end #wrap -->
+
+<div class="footer">
+     <!-- <a href="#">О нас</a><span> |</span>--><a href="contacts.html">Контакты</a>  | <a href="http://www.eomy.net/"><img src="http://www.eomy.net/eomy.net.laex.png" border="0" alt="EOMY.NET: бесплатный хостинг"/></a>
+</div>
+
+ </body>
 </html>
