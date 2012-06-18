@@ -39,15 +39,15 @@ class Artifact(models.Model):
     name = models.CharField(max_length = 50)
     description = models.TextField(blank = True)
     uid = models.CharField(max_length = 16, unique = True, 
-                                db_index = True, editable = False,
-                                default = rnd_str)
+                                db_index = True)
+                                
     photo = models.ImageField(upload_to = "/gifts/photos", blank = True)
-    creator = models.ManyToManyField(User, related_name = 'created_gifts') #origin created the gift
-    master = models.ManyToManyField(User, related_name = 'mastered_gifts') #master has rights and ratings of the gift
+    creators = models.ManyToManyField(User, related_name = 'created_gifts') #origin created the gift
+    masters = models.ManyToManyField(User, related_name = 'mastered_gifts') #master has rights and ratings of the gift
     owner = models.ForeignKey(User, related_name = 'owned_gifts') #owner is person, who has got the gift by last transaction
     create_datetime = models.DateTimeField(auto_now_add=True)
     create_location = models.ForeignKey(Location, blank=True, null=True, related_name = '+') #location field type will be specified after learning geolocation
-    lastpass_datetime = models.DateTimeField(blank=True) #not required. It's possible to get it from transactions 
+    lastpass_datetime = models.DateTimeField(blank=True, null=True) #not required. It's possible to get it from transactions 
     lastpass_location = models.ForeignKey(Location, blank=True,  null=True, related_name = '+') #may be obtained from transactions + location type = ?    
     quest = models.ForeignKey(Quest, blank=True, null=True, related_name = '+')
     permissions = models.ForeignKey(Permissions, related_name = '+')

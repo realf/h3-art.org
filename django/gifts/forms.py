@@ -8,3 +8,6 @@ class ContactForm(forms.Form):
 class GiftCreateForm(forms.Form):
     name = forms.CharField()
     description = forms.CharField()
+    
+class ArtifactCodeForm(forms.Form):
+    code = forms.SlugField(initial="Enter your code here")
