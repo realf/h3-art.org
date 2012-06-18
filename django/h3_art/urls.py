@@ -27,8 +27,9 @@ urlpatterns = patterns('',
     url(r'^accounts/logout/$', logout, {'template_name':'logout.html'}),
     # User Profile
     url(r'^accounts/profile/$', users_views.user_profile),
+    url(r'^accounts/profile/([0-9A-Za-z]*)$', gifts_views.user_profile),
     # User Registration
-    url(r'^r/$', users_views.register), 
+    url(r'^r/$', users_views.register),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
