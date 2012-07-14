@@ -1,5 +1,13 @@
-# Django settings for h3_art project.
-import h3_art.custom_settings
+"""Django settings for h3_art project."""
+
+
+try:
+    import h3_art.custom_settings
+except ImportError:
+    import os, shutil
+    CUSTOM_MODULE = os.path.join(os.path.dirname(__file__), 'custom_settings')
+    shutil.copyfile(CUSTOM_MODULE + '.sample', CUSTOM_MODULE + '.py')
+    import h3_art.custom_settings
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
